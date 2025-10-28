@@ -1,0 +1,28 @@
+{
+  "produtos": [
+    {
+      "id": 1,
+      "titulo": "Teclado Gamer RGB",
+      "preco": 250,
+      "img": "",
+      "descricao": "Teclado Gamer RGB Mêcanico Bluetooth/2.4Ghz",
+      "detalhe": "Teclado Gamer RGB mêcanico, switch vermelho, teclas númericas. Teclado bluetooth e com conexão wireless 2.4Ghz, para um tempo de resposta mais rápido, indicado para jogadores mais competitivos."
+    },
+    {
+      "id": 2,
+      "titulo": "Mouse sem fio",
+      "preco": 185.5,
+      "img": "",
+      "descricao": "Mouse sem fio Bluetooth/2.4Ghz",
+      "detalhe": "Mouse sem fio. Mouse sem fio bluetooth e com conexão wireless 2.4Ghz, para uma melhor experiência do usuário, e com tempo de resposta semelhante de um mouse com fio."
+    },
+    {
+      "id": 3,
+      "titulo": "Monitor 24 polegadas",
+      "preco": 780,
+      "img": "",
+      "descricao": "Monitor 24 polegadas Full HD",
+      "detalhe": "Monitor 24 polegadas Full HD. Imagem limpa de alta definição, com frequência de 144hz, LED e com FreeSync, indispensável para quem procura um monitor com uma tela limpa e perfeita."
+    }
+  ]
+}

@@ -1,30 +1,10 @@
-import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
 
-import {
-  PoMenuItem,
-  PoMenuModule,
-  PoPageModule,
-  PoToolbarModule,
-} from '@po-ui/ng-components';
+import { Component } from '@angular/core';
+import { MainLayout } from './layout/main-layout/main-layout';
 
 @Component({
   selector: 'app-root',
-  imports: [
-    CommonModule,
-    PoToolbarModule,
-    PoMenuModule,
-    PoPageModule
-  ],
-  templateUrl: './app.html',
-  styleUrls: ['./app.css'],
+  imports: [MainLayout],
+  template: `<app-main-layout />`
 })
-export class App {
-  readonly menus: Array<PoMenuItem> = [
-    { label: 'Home', action: this.onClick.bind(this) },
-  ];
-
-  private onClick() {
-    alert('Clicked in menu item');
-  }
-}
+export class App { }
