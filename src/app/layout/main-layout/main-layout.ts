@@ -1,12 +1,14 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import {
   PoMenuItem,
   PoMenuModule,
   PoPageModule,
   PoHeaderModule,
   PoHeaderBrand,
+  PoBreadcrumb,
 } from '@po-ui/ng-components';
-import { Router, RouterModule } from "@angular/router";
+import { NavigationEnd, Router, RouterModule } from "@angular/router";
+import { filter } from 'rxjs';
 
 @Component({
   standalone: true,
@@ -23,7 +25,7 @@ import { Router, RouterModule } from "@angular/router";
 
       <po-menu [p-menus]="menus"></po-menu>
 
-      <po-page-default>
+      <po-page-default [p-breadcrumb]="breadcrumb">
         <router-outlet />
       </po-page-default>
     </div>
@@ -31,6 +33,17 @@ import { Router, RouterModule } from "@angular/router";
 })
 export class MainLayout {
   private readonly router = inject(Router);
+  public breadcrumb!: PoBreadcrumb;
+
+  constructor() {
+    this.router.events
+      .pipe(filter(event => event instanceof NavigationEnd))
+      .subscribe((event: NavigationEnd) => {
+        this.breadcrumb = {
+          items: [{ label: this.formatUrlToTitle(event.urlAfterRedirects), link: event.urlAfterRedirects }]
+        };
+      });
+  }
 
   public headerBrand: PoHeaderBrand = {
     title: 'Web Shop',
@@ -42,4 +55,13 @@ export class MainLayout {
     { label: 'Home', action: () => this.router.navigate(['']) },
     { label: 'Produtos', action: () => this.router.navigate(['/produtos']) },
   ];
+
+  private formatUrlToTitle(url: string): string {
+    const clean = url.replace('/', '');
+    if (!clean) return 'Home';
+
+    return clean.split('-')
+      .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+      .join(' ');
+  }
 }

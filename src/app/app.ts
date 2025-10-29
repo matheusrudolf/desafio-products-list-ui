@@ -7,7 +7,9 @@ import ptBr from '@angular/common/locales/pt';
 @Component({
   selector: 'app-root',
   imports: [MainLayout],
-  template: `<app-main-layout />`
+  template: `
+    <app-main-layout />
+  `
 })
 export class App {
 

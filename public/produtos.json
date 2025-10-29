@@ -4,7 +4,7 @@
       "id": 1,
       "titulo": "Teclado Gamer RGB",
       "preco": 250,
-      "vendas": "alto",
+      "vendas": "Muito alto",
       "img": "https://images.unsplash.com/photo-1633315754878-b5a3b0ce64f7?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1176",
       "descricao": "Teclado Gamer RGB Mêcanico Bluetooth/2.4Ghz",
       "detalhe": "Teclado Gamer RGB mêcanico, switch vermelho, teclas númericas. Teclado bluetooth e com conexão wireless 2.4Ghz, para um tempo de resposta mais rápido, indicado para jogadores mais competitivos."
@@ -13,7 +13,7 @@
       "id": 2,
       "titulo": "Mouse sem fio",
       "preco": 185.5,
-      "vendas": "alto",
+      "vendas": "Alto",
       "img": "https://images.unsplash.com/photo-1658070429465-848c0796abf3?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1170",
       "descricao": "Mouse sem fio Bluetooth/2.4Ghz",
       "detalhe": "Mouse sem fio bluetooth e com conexão wireless 2.4Ghz, para uma melhor experiência do usuário, e com tempo de resposta semelhante de um mouse com fio."
@@ -22,7 +22,7 @@
       "id": 3,
       "titulo": "Monitor 24 polegadas",
       "preco": 780,
-      "vendas": "medio",
+      "vendas": "Médio",
       "img": "https://images.unsplash.com/photo-1666771410003-8437c4781d49?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1074",
       "descricao": "Monitor 24 polegadas Full HD",
       "detalhe": "Monitor 24 polegadas Full HD. Imagem limpa de alta definição, com frequência de 144hz, LED e com FreeSync, indispensável para quem procura um monitor com uma tela limpa e perfeita."
@@ -31,10 +31,28 @@
       "id": 4,
       "titulo": "Impressora Laser",
       "preco": 450,
-      "vendas": "baixo",
+      "vendas": "Baixo",
       "img": "https://images.unsplash.com/photo-1612815154858-60aa4c59eaa6?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1170",
       "descricao": "Impressora Laser Economic Pack",
       "detalhe": "Impressora Laser Economic Pack. Impressora a laser, econômica e de fácil uso, perfeito para impressões de larga escala."
+    },
+    {
+      "titulo": "Teclado Mêcanico",
+      "preco": 255,
+      "vendas": "Médio",
+      "img": "https://images.unsplash.com/photo-1618384887929-16ec33fab9ef?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=880",
+      "descricao": "Teclado Mêcanico switch marrom",
+      "detalhe": "Um teclado de alta performance, com teclas macias e resposta muito rápida, perfeito para o uso diário e até mesmo no trabalho, com um switch marrom, baixo ruído ao toque e perfeito para quem deseja surfar na programação.",
+      "id": 5
+    },
+    {
+      "titulo": "Cadeira Escritório",
+      "vendas": "Muito baixo",
+      "img": "https://images.unsplash.com/photo-1670946839270-cc4febd43b09?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=688",
+      "descricao": "Cadeira Escritório Gamer Race",
+      "detalhe": "Cadeira ergonómica, para aqueles que precisam de todo o conforto na hora de passar horas em frente ao computador, oferece o melhor para o usuário e permite trabalhar, ou até jogar sem muitos problemas nas costas.",
+      "preco": 799.9,
+      "id": 6
     }
   ]
 }
