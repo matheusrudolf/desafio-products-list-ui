@@ -33,7 +33,7 @@ export class MainLayout {
   private readonly router = inject(Router);
 
   public headerBrand: PoHeaderBrand = {
-    title: 'Web Products',
+    title: 'Web Shop',
     logo: '/po_color.png',
     action: () => this.router.navigate([''])
   };

@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
@@ -11,8 +11,14 @@ export class ProductsService {
 
   private readonly http = inject(HttpClient);
 
-  public listAll(): Observable<any> {
-    return this.http.get(`${this.url}/produtos`);
+  public listAll(filter?: string): Observable<any> {
+    let params = new HttpParams();
+
+    if (filter?.trim()) {
+      params = params.set('q', filter.trim());
+    }
+
+    return this.http.get(`${this.url}/produtos`, { params });
   }
 
 }

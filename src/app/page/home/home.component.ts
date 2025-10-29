@@ -1,17 +1,34 @@
 import { Component, inject, OnInit, viewChild } from '@angular/core';
 import { ProductsService } from '../../core/products.service';
-import { PoModalComponent, PoModalModule, PoWidgetModule, PoFieldModule, PoLoadingModule } from '@po-ui/ng-components';
-import { DecimalPipe, registerLocaleData } from '@angular/common';
-import ptBr from '@angular/common/locales/pt';
+import { PoModalComponent, PoModalModule, PoWidgetModule, PoFieldModule, PoLoadingModule, PoButtonModule } from '@po-ui/ng-components';
+import { DecimalPipe } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
 @Component({
   standalone: true,
   selector: 'app-home',
-  imports: [PoWidgetModule, DecimalPipe, PoModalModule, PoFieldModule, FormsModule, PoLoadingModule],
+  imports: [PoWidgetModule, DecimalPipe, PoModalModule, PoFieldModule, FormsModule, PoLoadingModule, PoButtonModule],
   template: `
-    <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: flex-start;">
-      @if (products.length === 0) {
+    <div class="po-mb-2">
+      <h1 class="po-font-title">Produtos</h1>
+      <h4 class="po-text-center">Confira nosso produtos disponíveis!</h4>
+    </div>
+
+    <div class="flex content-center">
+      <po-input #search
+        p-placeholder="Ou busque o seu produto aqui..."
+        style="width: 100%;">
+      </po-input>
+      <po-button
+        p-label="Buscar"
+        p-size="medium"
+        class="po-pt-1"
+        (p-click)="handleProductsListAll(search.modelLastUpdate)">
+      </po-button>
+    </div>
+
+    <div class="flex wrap content-flex-start">
+      @if (loading) {
         <po-loading-overlay p-size="lg"></po-loading-overlay>
       }
       @for (product of products; track $index) {
@@ -23,10 +40,10 @@ import { FormsModule } from '@angular/forms';
           p-primary-label="Detalhes"
           p-secondary-label="Comprar"
           (p-primary-action)="openDetails(product)"
-          [p-height]="395"
-          style="flex: 1 1 200px; max-width: 100%;">
-          <img [src]="product.img" [alt]="product.titulo" width="250rem" style="display: block; margin: 0 auto; border-radius: .5rem;">
-          <div style="margin-top: 1rem;">
+          [p-height]="400"
+          class="card-detail">
+          <img [src]="product.img" [alt]="product.titulo" width="250rem" class="block img-content">
+          <div class="po-mt-2">
             <div class="po-font-subtitle po-text-center">R$ {{ product.preco | number : '1.2-2' : 'pt-BR' }} </div>
             <div class="po-text-center"> {{ product.descricao }} </div>
           </div>
@@ -36,12 +53,12 @@ import { FormsModule } from '@angular/forms';
 
     <po-modal #modal p-title="Produto">
         @if (product) {
-          <div style="margin-bottom: 1rem;">
+          <div class="po-mb-2">
             <h2 class="po-text-center"> {{ product.titulo }} </h2>
             <h5 class="po-text-center"> {{ product.descricao }} </h5>
           </div>
-          <img [src]="product.img" [alt]="product.titulo" width="350rem" style="display: block; margin: 0 auto; border-radius: .5rem;">
-          <div style="margin-top: 1rem;">
+          <img [src]="product.img" [alt]="product.titulo" width="350rem" class="block img-content">
+          <div class="po-mt-2">
             <po-textarea
               [(ngModel)]="product.detalhe"
               [p-readonly]="true">
@@ -58,18 +75,22 @@ export class HomeComponent implements OnInit {
 
   public products: any[] = [];
   public product!: any;
-
-  constructor() {
-    registerLocaleData(ptBr);
-  }
+  public loading: boolean = false;
 
   ngOnInit(): void {
     this.handleProductsListAll();
   }
 
-  private handleProductsListAll(): void {
-    this.productsService.listAll().subscribe({
-      next: (res) => setTimeout(() => this.products = res, 1000),
+  public handleProductsListAll(param?: any): void {
+    this.loading = true;
+
+    this.productsService.listAll(param).subscribe({
+      next: (res) => {
+        setTimeout(() => {
+          this.products = res;
+          this.loading = false;
+        }, 1000)
+      },
       error: (error) => console.error(error)
     });
   }

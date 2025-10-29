@@ -7,9 +7,9 @@ import { PoTableColumn, PoTableModule, PoButtonModule, PoTooltipModule } from '@
   selector: 'app-products',
   imports: [PoTableModule, PoButtonModule, PoTooltipModule],
   template: `
-    <h3>Lista de Produtos</h3>
+    <div style="display: flex; justify-content: space-between; margin-bottom: 1rem; margin-top: 1rem;">
+      <h3>Lista de Produtos</h3>
 
-    <div style="display: flex; justify-content: end; margin-bottom: 1rem; margin-top: 1rem;">
       <po-button
         p-label="Adicionar Produto"
         p-icon="an an-plus">
